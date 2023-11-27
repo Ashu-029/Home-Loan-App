@@ -1,0 +1,65 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+    
+
+<div class="container register-form">
+            <div class="form">
+                <div class="note">
+                    <p>Welcome To Loan Regisrtation Portal</p>
+                </div>
+
+                <div class="form-content">
+                    <div class="row">
+                        
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Your Name *" [(ngModel)]="cs.enq.custName "/>
+                            </div>
+                            
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="your DOB *" [(ngModel)]="cs.enq.custDOB"/>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Your Age *" [(ngModel)]="cs.enq.custAge"/>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Your Email *" [(ngModel)]="cs.enq.custEmail"/>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Your AdharCardNo *" [(ngModel)]="cs.enq.custAdharCardNo"/>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Your PanCardNo *" [(ngModel)]="cs.enq.custPanCardNo"/>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Your MobileNo*" [(ngModel)]="cs.enq.custMobileNo"/>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Your Salary" [(ngModel)]="cs.enq.custSalary"/>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Your LoanAmount*" [(ngModel)]="cs.enq.homeLoanAmount"/>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Your CompanyName*" [(ngModel)]="cs.enq.custCompanyName"/>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Your City*" [(ngModel)]="cs.enq.custCity"/>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Your Pincode *" [(ngModel)]="cs.enq.custPincode"/>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <button type="button" (click)="saveEnquiry(cs.enq)" class="btnSubmit">Submit</button>
+                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button type="button" (click)="resetEnquiry()" class="btnSubmit">Reset</button>
+                </div>
+            </div>
+        </div>

@@ -1,9 +1,11 @@
 package com.re.serviceImpl;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.annotation.Resource;
 
+import org.springframework.aop.ThrowsAdvice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -25,12 +27,12 @@ public class ReServiceImple implements ReService  {
 	@Override
 	public EnquiryInfo saveUser(EnquiryInfo enqInfo) {
 	
-		if (repository.existsById(enqInfo.getEnqId())) {
-			throw new ResourceAccessException("Record with ID " + enqInfo.getEnqId() + " already exists ");
-		}
-		else {
+//		if (repository.existsById(enqInfo.getEnqId())) {
+//			throw new ResourceAccessException("Record with ID " + enqInfo.getEnqId() + " already exists ");
+//		}
+//		else {
 			return repository.save(enqInfo);
-		}
+//		}
 	}
 
 
@@ -48,7 +50,17 @@ public class ReServiceImple implements ReService  {
 		return enq;
 	}
 	
-	
+	public EnquiryInfo updateenq(EnquiryInfo en,int id) {
+		
+
+	      Optional<EnquiryInfo> findById = repository.findById(id);
+	      if (findById.isPresent() && en.getEnqId()==id) {
+			 return repository.save(findById.get());		
+			 }
+	      else {
+			throw new ResourceAccessException("not found");
+		}
+	}
 
 	
 

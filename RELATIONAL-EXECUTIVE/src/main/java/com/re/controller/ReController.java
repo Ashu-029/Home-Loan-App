@@ -7,11 +7,14 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.re.entity.EnquiryInfo;
 import com.re.reService.ReService;
+import com.re.serviceImpl.ReServiceImple;
+
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
@@ -22,7 +25,7 @@ public class ReController {
 
 	
 	@Autowired
-	private ReService res;
+	private ReServiceImple res;
 	
 	@PostMapping("/save-user")
 	public ResponseEntity<EnquiryInfo>saveEnquiry(@RequestBody EnquiryInfo eInfo){
@@ -45,6 +48,14 @@ public class ReController {
 		return new ResponseEntity<List<EnquiryInfo>>(allEnq,HttpStatus.OK);
 	}
 	
+	
+	@PutMapping("/update-data/{id}")
+	public ResponseEntity<EnquiryInfo> updateEnq(@RequestBody EnquiryInfo enquiry, @PathVariable int id ){
+		
+		EnquiryInfo updateenq = res.updateenq(enquiry, id);
+		
+		return new ResponseEntity<EnquiryInfo>(updateenq,HttpStatus.OK);
+	}
 	
 	
 	

@@ -58,7 +58,7 @@ public class ReServiceImple implements ReService  {
 			 return repository.save(findById.get());		
 			 }
 	      else {
-			throw new ResourceAccessException("not found");
+			throw new ResourceAccessException("found");
 		}
 	}
 
